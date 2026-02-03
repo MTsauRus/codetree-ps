@@ -9,7 +9,7 @@ public class Main {
         String str = sc.next();
 
         int low = 1;
-        int high = N;
+        int high = n;
         int ans = 0;
 
         while (low <= high) {
