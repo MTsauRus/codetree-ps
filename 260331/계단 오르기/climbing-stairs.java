@@ -11,7 +11,7 @@ public class Main {
             dp[i] = Math.max(dp[i-2]+1, dp[i-3]+1);
 
         }
-        int N = Integer.parseInt(br.readline());
+        int N = Integer.parseInt(br.readLine());
         System.out.println(dp[N]);
     }
 }
