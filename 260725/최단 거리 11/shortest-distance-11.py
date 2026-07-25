@@ -4,14 +4,11 @@ from heapq import heappush, heappop
 
 V, E = map(int, input().split())
 G = [[] for _ in range(V+1)]
-global_dist = [[10**9]*(V+1) for _ in range(V+1)]
 
 for _ in range(E):
     s, e, w = map(int, input().split())
     G[s].append((w, e))
     G[e].append((w, s))
-    global_dist[s][e] = w
-    global_dist[e][s] = w
 
 start, end = map(int, input().split())
 dist = [float('inf')] * (V+1)
@@ -45,7 +42,5 @@ while now != end:
     
     path.append(mv)
     now = mv
-    mv = 100001
-        
 
 print(*path)
