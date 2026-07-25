@@ -35,15 +35,17 @@ def dijkstra(start):
 dijkstra(end)
 print(dist[start])
 now = start
-print(now, end=" ")
+path = [start]
 while now != end:
-    now_prev = now
-    for i in range(1, V+1):
-        if dist[now] == dist[i] + global_dist[now][i]: # 이러면 최단경로 위에 있는거임
-            print(i, end=" ")
-            now = i
-            break
+    mv = 100001 # min_vertex
+    for nw, nv in G[now]:
+        if dist[now] == dist[nv] + nw: # now -> nv로 가는 weight == nw
+            if nv < mv:
+                mv = nv
     
-    if now_prev == now: # 다음노드가 안바뀜: 경로단절, 망하는케이스
-        print("fail")
-        break
+    path.append(mv)
+    now = mv
+    mv = 100001
+        
+
+print(*path)
